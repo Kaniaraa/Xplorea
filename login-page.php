@@ -1,5 +1,3 @@
-<!-- image address ( https://i.pinimg.com/736x/8e/17/6d/8e176ddb525dc623c2f5ca0a492176b8.jpg ) -->
-
 <?php
 session_start();
 $errorMsg = $_SESSION['error'] ?? '';
@@ -42,7 +40,7 @@ unset($_SESSION['error']); // agar pesan hanya muncul 1x
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="pass" id="pass" placeholder="********"></td>
+                    <td><input type="password" name="pass" id="pass"    ></td>
                 </tr>
                 <tr><td><a class="forgot" href="#">Forgot password?</a></td></tr>
                 <tr>

@@ -20,7 +20,7 @@ unset($_SESSION['error']); // agar pesan hanya muncul 1x
         <p>Xploréa</p>
     </div>
     <div class="right-section">
-        <form action="login.php" method="post" class="main">
+        <form action="login.php" method="POST" class="main">
             <?php if (!empty($errorMsg)) : ?>
             <p style="color: red; text-align: center; font-weight: bold;"><?= htmlspecialchars($errorMsg) ?></p>
             <?php endif; ?>
@@ -40,7 +40,7 @@ unset($_SESSION['error']); // agar pesan hanya muncul 1x
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="password" name="pass" id="pass"    ></td>
+                    <td><input type="password" name="pass" id="pass"></td>
                 </tr>
                 <tr><td><a class="forgot" href="#">Forgot password?</a></td></tr>
                 <tr>
@@ -56,7 +56,7 @@ unset($_SESSION['error']); // agar pesan hanya muncul 1x
                 </tr>
                 <tr>
                     <td class="signup">
-                        <p>Dont have an account? <a href="#">Sign in</a></p>
+                        <p>Dont have an account? <a href="signin-page.php">Sign in</a></p>
                     </td>
                 </tr>
             </table>

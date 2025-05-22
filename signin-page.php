@@ -1,5 +1,9 @@
 <!-- image address ( https://i.pinimg.com/736x/8e/17/6d/8e176ddb525dc623c2f5ca0a492176b8.jpg ) -->
-
+<?php
+session_start();
+$errorMsg = $_SESSION['error'] ?? '';
+unset($_SESSION['error']); // agar pesan hanya muncul 1x
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +20,12 @@
         <p>Xploréa</p>
     </div>
     <div class="right-section">
-        <form action="signin.php" method="post" class="main">
+        <form action="signin.php" method="POST" class="main-signup">
+            <?php if (!empty($errorMsg)) : ?>
+                <p style="color: red; text-align: center; font-weight: bold;">
+                <?= htmlspecialchars($errorMsg) ?>
+                </p>
+            <?php endif; ?>
             <p class="header">Sign in</p> <br>
             <table class="isian">
                 <tr>
@@ -33,7 +42,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="username" name="user" id="user" placeholder="Create username"></td>
+                    <td><input type="text" name="user" id="user" placeholder="Create username"></td>
                 </tr>
                 <tr>
                     <td>
@@ -56,7 +65,7 @@
                 </tr>
                 <tr>
                     <td class="signup">
-                        <p>Already have an account? <a href="#">Log in</a></p>
+                        <p>Already have an account? <a href="login-page.php">Log in</a></p>
                     </td>
                 </tr>
             </table>

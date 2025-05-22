@@ -1,15 +1,12 @@
 <?php
+$host = "localhost";
+$user = "root";
+$pass = ""; // Ganti sesuai password MySQL kamu
+$db   = "xplorea"; // Ganti sesuai nama database kamu
 
-	//membuat koneksi ke basis data
-	$koneksi = mysqli_connect("localhost", "root", "", "xplorea");
+$conn = new mysqli($host, $user, $pass, $db);
 
-	//mengecek apakah koneksi basis data gagal
-	if (!$koneksi) {
-		echo "
-			<script>alert('Koneksi Database Gagal!');</script>
-		";
-        die("Koneksi gagal: " . mysqli_connect_error());
-
-	}
-
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
 ?>

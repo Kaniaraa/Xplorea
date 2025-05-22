@@ -1,53 +1,42 @@
 <?php
 session_start();
-
-$view = $_GET['view'] ?? 'login';
-
+require_once 'koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $action = $_POST['action'] ?? '';
+    $input = $_POST['mail'] ?? '';
+    $password = $_POST['pass'] ?? '';
 
-    if ($action === 'login') {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+    // Cek berdasarkan email ATAU username
+    $sql = "SELECT email, username, password FROM user WHERE email = ? OR username = ?";
+    $stmt = $conn->prepare($sql);
 
-        $valid_password = $_SESSION['dummy_password'] ?? $dummyUser['password'];
+    if (!$stmt) {
+        die("Query prepare gagal: " . $conn->error);
+    }
 
-        if ($username === $dummyUser['username'] && $password === $valid_password) {
-        $_SESSION['username'] = $username;
-        header("Location: http://localhost/tes/index.php");
-        exit();
-        } elseif ($username === $dummyUser['username']) {
-            $error = "Username benar tapi password salah.";
+    // Bind dua kali karena query punya 2 ?
+    $stmt->bind_param("ss", $input, $input);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result && $result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+        $passwordFromDB = $row['password'];
+
+        // Ganti dengan password_verify kalau pakai hash nanti
+        if ($password === $passwordFromDB) {
+            $_SESSION['user'] = $row['email']; // Atau bisa simpan username juga kalau mau
+            header('Location: index.html');
+            exit;
         } else {
-            $error = "Username atau password salah.";
+            $_SESSION['error'] = 'Password salah!';
+            header('Location: login-page.php');
+            exit;
         }
-
-    } elseif ($action === 'forgot') {
-        $email = $_POST['email'];
-        if ($email === $dummyUser['email']) {
-            $_SESSION['reset_email'] = $email;
-            header("Location: login.php?view=reset");
-            exit();
-        } else {
-            $error = "Email not found.";
-        }
-
-    } elseif ($action === 'reset') {
-        $newpass = $_POST['newpass'];
-        $confirmpass = $_POST['confirmpass'];
-    
-        if ($newpass !== $confirmpass) {
-            $error = "Passwords do not match.";
-        } elseif (strlen($newpass) < 8) {
-            $error = "Password must be at least 8 characters.";
-        } else {
-            // Simulasi update password
-            $_SESSION['dummy_password'] = $newpass;
-            unset($_SESSION['reset_email']);
-            $success = "Password successfully reset. You may now <a href='login.php'>login</a>.";
-            $view = "login";
-        }
+    } else {
+        $_SESSION['error'] = 'Email atau username tidak ditemukan!';
+        header('Location: login-page.php');
+        exit;
     }
 }
 ?>

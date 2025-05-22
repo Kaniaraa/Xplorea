@@ -1,5 +1,11 @@
 <!-- image address ( https://i.pinimg.com/736x/8e/17/6d/8e176ddb525dc623c2f5ca0a492176b8.jpg ) -->
 
+<?php
+session_start();
+$errorMsg = $_SESSION['error'] ?? '';
+unset($_SESSION['error']); // agar pesan hanya muncul 1x
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -17,6 +23,9 @@
     </div>
     <div class="right-section">
         <form action="login.php" method="post" class="main">
+            <?php if (!empty($errorMsg)) : ?>
+            <p style="color: red; text-align: center; font-weight: bold;"><?= htmlspecialchars($errorMsg) ?></p>
+            <?php endif; ?>
             <p class="header">Log in</p> <br>
             <table class="isian">
                 <tr>
@@ -25,7 +34,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td><input type="email" name="mail" id="mail" placeholder="Email / username"></td>
+                    <td><input type="text" name="mail" id="mail" placeholder="Email / username"></td>
                 </tr>
                 <tr>
                     <td>

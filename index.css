@@ -32,7 +32,12 @@ body {
     width: 15%;
     display: flex;
     justify-content: end;
+}
+
+.logo a {
+    text-decoration: none;
     font-size: 2rem;
+    color: black;
 }
 
 .menu a {
@@ -103,11 +108,12 @@ section {
     justify-content: center;
     margin-left: 15vh;
     margin-top: 20vh;
-    color: black;
 }
 
-.hero-content-button p {
+.hero-content-button a {
     text-align: center;
+    text-decoration: none;
+    color: black;
     font-size: 1.6rem;
 }
 

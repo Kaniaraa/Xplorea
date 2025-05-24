@@ -48,8 +48,17 @@ body {
     width: 15%;
 }
 
+section {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
 .section1 {
     width: 100%;
+    margin: 0;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -74,6 +83,10 @@ body {
 
 .hero-content .title {
     font-size: 1.5rem;
+}
+
+.hero-content .isi {
+    padding-left: 1vh;
 }
 
 .hero-content-button {
@@ -104,7 +117,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 110vh;
     flex-direction: column;
     position: relative;
     width: 200vh;
@@ -154,24 +166,150 @@ body {
     justify-content: center;
 }
 
-.trending1, .trending2, .trending3 {
+.trending1,
+.trending2,
+.trending3 {
     margin: 0 2rem;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    background-color: white;
 }
 
 .trending1 {
     width: 50vh;
     height: 60vh;
-    background-color: gray;
 }
+
 .trending2 {
     width: 40vh;
     height: 50vh;
-    background-color: gray;
 }
+
 .trending3 {
     width: 40vh;
     height: 50vh;
-    background-color: gray;
 }
 
 /* section trending end */
+
+/* section3 start */
+
+.section3 {
+    width: 100%;
+    height: 60vh;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    background: url(https://www.discoverhongkong.com/content/dam/dhk/intl/explore/arts-entertainment/artsinhk/2025/gallery_art-basel.jpg) no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.section3::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.section3 > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* section3 end */
+
+/* calendar start */
+.calendar {
+    width: 100%;
+    height: 100vh;
+    background-color: gray;
+}
+/* calendar end */
+
+/* cta start */
+.cta {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-left: 5vw;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+.cta-title {
+    font-size: 2rem;
+}
+
+.cta-text {
+    font-size: 1rem;
+    padding-left: 2vw;
+    width: 30vw;
+    text-align: start;
+}
+
+.cta-text p {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.cta-button {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+}
+
+.cta-1, .cta-2{
+    margin-right: 2rem;
+    padding: 1rem 1.5rem;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px rgba(0, 4, 4, 0.25);
+}
+
+.cta-1 a , .cta-2 a{
+    text-decoration: none;
+    font-size: 1rem;
+    color: black;
+}
+
+/* cta end */
+
+/* footer start */
+.footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    background-color: #1e1e1e;
+    color: white;
+    height: 50vh;
+}
+
+.footer1 {
+    display: flex;
+    flex-direction: column;
+}
+.footer2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer p {
+    margin-bottom: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    margin-top: 5px;
+    color: white;
+}
+/* footer end */

@@ -82,6 +82,7 @@ body {
     height: 25vh;
     transform: translateX(-50%);
     background-color: #fff;
+    /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
     padding: 10px;
     z-index: 10;
     display: flex;
@@ -112,6 +113,7 @@ body {
     width: 35vw;
     height: 40vh;
     display: flex;
+    flex-direction: column;
     align-items: end;
     justify-content: space-evenly;
     padding-bottom: 2rem;
@@ -121,10 +123,23 @@ body {
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
+.login-expand0 {
+    width: 90%;
+}
+
 .login-expand a {
     text-decoration: none;
     color: black;
     font-size: 1rem;
+}
+
+.login-expand-cta {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 
 .login-expand1, .artists-expand1{
@@ -467,14 +482,38 @@ section {
 .footer1 {
     display: flex;
     flex-direction: column;
+    margin: 0;
 }
 .footer2 {
+    margin: 0;
     display: flex;
     flex-direction: column;
 }
 .footer3 {
     display: flex;
+    margin: 0;
     flex-direction: column;
+    height: 35%;
+}
+
+.footer3 p {
+    margin: 0;
+}
+
+.footer3 li {
+    margin-top: 1rem;
+    list-style: none;
+    margin-right: 1rem;
+    display: inline-block;
+}
+
+.footer3 a {
+    font-size: 2rem;
+}
+
+.footer3 ul {
+    padding: 0;
+    margin: 0;
 }
 
 .footer p {

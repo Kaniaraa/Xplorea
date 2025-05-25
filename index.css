@@ -148,6 +148,27 @@ body {
     border: 2px solid gray;
 }
 
+.cart-expand {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    background: white;
+    z-index: 1001;
+    padding: 10px;
+    height: 100vh;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15); /* Putih semi transparan */
+    z-index: 90;
+}
+
 .hidden {
     opacity: 0;
     visibility: hidden;

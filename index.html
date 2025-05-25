@@ -46,21 +46,31 @@
             </div>
         </div>
         <div class="login">
-            <a href="#"><i class="bi bi-cart"></i></a>
+            <a href="#" id="cartToggle"><i class="bi bi-cart"></i></a>
             <a href="#" id="loginToggle"><i class="bi bi-person-circle"></i></a>
         </div>
+        <!-- expand login -->
         <div class="login-expand hidden" id="loginExpand">
             <div class="login-expand1">
                 <a href="login-page.php">Log-In
                     <i class="bi bi-person"></i>
                 </a>
-                <!-- <p><i class="bi bi-person"></i></p> -->
             </div>
             <div class="login-expand2">
                 <a href="#">Become an Artist</a>
                 <p><i class="bi bi-vector-pen"></i></p>
             </div>
         </div>
+        <!-- expand cart -->
+        <div class="cart-expand hidden" id="cartExpand">
+            <div class="cart-expand-header">
+                <h3>Cart</h3>
+                <button class="close-cart" id="closeCart"><i class="bi bi-x-lg"></i></button>
+            </div>
+            <div class="cart-expand-content"></div>
+        </div>
+        <!-- Overlay -->
+        <div class="overlay hidden" id="overlay"></div> 
     </nav>
 
     <!-- navbar end -->

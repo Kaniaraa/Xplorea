@@ -4,11 +4,13 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'IBM Plex Sans';
     background-size: cover;
     overflow-x: hidden;
     overflow-y: auto;
 }
+
+/* navbar start */
 
 .navbar {
     width: 100%;
@@ -51,7 +53,72 @@ body {
 
 .login {
     width: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
+
+.login a {
+    font-size: 2rem;
+    margin: 0;
+    margin-right: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
+.login-expand {
+    position: absolute;
+    top: 110%; /* Tepat di bawah navbar */
+    right: 5%;
+    background-color: rgb(255, 255, 255); /* Hanya contoh warna */
+    width: 35vw;
+    height: 40vh;
+    display: flex;
+    align-items: end;
+    justify-content: space-evenly;
+    padding-bottom: 2rem;
+    border-radius: 25px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.login-expand a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+.login-expand1{
+    height: 2.3rem;
+    padding: 0rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    border: 2px solid gray;
+}
+
+.login-expand2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 2.3rem;
+    padding: 0 2.5rem;
+    border-radius: 25px;
+    border: 2px solid gray;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* navbar end */
 
 section {
     margin: 0;

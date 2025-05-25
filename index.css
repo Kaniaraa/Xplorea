@@ -47,7 +47,13 @@ body {
     color: black;
 }
 
-.menu #menu {
+.menu li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 1rem;
+}
+
+#menu, #artistsToggle {
     margin: 0 1rem;
 }
 
@@ -66,6 +72,36 @@ body {
     margin-right: 0.5rem;
     text-decoration: none;
     color: black;
+}
+
+.artist-expand {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 30vw;
+    height: 25vh;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 1rem;
+}
+
+.artist-expand li {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 0.5rem;
+}
+
+.artist-expand a {
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+.artist-expand #title {
+    font-weight: 600;
 }
 
 .login-expand {
@@ -91,7 +127,7 @@ body {
     font-size: 1rem;
 }
 
-.login-expand1{
+.login-expand1, .artists-expand1{
     height: 2.3rem;
     padding: 0rem 5rem;
     display: flex;
@@ -101,7 +137,7 @@ body {
     border: 2px solid gray;
 }
 
-.login-expand2 {
+.login-expand2, .artists-expand2 {
     display: flex;
     flex-direction: row;
     align-items: center;

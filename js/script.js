@@ -12,4 +12,19 @@ document.addEventListener("DOMContentLoaded", function () {
             loginExpand.classList.add('hidden');
         }
     });
+
+    const artistToggle = document.getElementById('artistToggle');
+    const artistExpand = document.getElementById('artistExpand');
+
+    artistToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        artistExpand.classList.toggle('hidden');
+    });
+
+    // Tutup saat klik di luar
+    document.addEventListener('click', function (e) {
+        if (!artistToggle.contains(e.target) && !artistExpand.contains(e.target)) {
+            artistExpand.classList.add('hidden');
+        }
+    });
 });

@@ -33,5 +33,4 @@ Admin
 - HTML
 - Java Script
 - PHP
-- Laravel
 - Bootstrap

@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
 $user = "root";
-$pass = ""; // Ganti sesuai password MySQL kamu
-$db   = "xplorea"; // Ganti sesuai nama database kamu
+$pass = ""; 
+$db   = "xplorea"; 
 
 $conn = new mysqli($host, $user, $pass, $db);
 

@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'email' => $user['email'],
                 'username' => $user['username'],
             ];
-            header('Location: index.html'); // Ganti sesuai halaman dashboard-mu
+            header('Location: pelanggan/index.html'); // Ganti sesuai halaman dashboard-mu
             exit;
         } else {
             $_SESSION['error'] = 'Password salah!';

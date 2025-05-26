@@ -54,6 +54,67 @@ document.addEventListener("DOMContentLoaded", function () {
             overlay.classList.add('hidden');
         });
     }
+
+    const links = document.querySelectorAll(".artist-section-link");
+    const sections = document.querySelectorAll("section");
+
+    links.forEach(link => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault(); // Hindari reload halaman
+      const target = this.getAttribute("data-section");
+
+      // Sembunyikan semua section
+      sections.forEach(sec => sec.style.display = "none");
+
+      // Tampilkan section yang sesuai
+      const targetSection = document.querySelector("." + target);
+      if (targetSection) {
+        targetSection.style.display = "block";
+      }
+    });
+  });
+
+
+    fetch("get-artists.php")
+    .then(res => res.json())
+    .then(data => {
+    const container = document.querySelector(".popular-artist"); // atau section lain
+
+    data.forEach(artist => {
+      // Nama artis
+      const nameEl = document.createElement("h3");
+      nameEl.textContent = artist.name;
+      nameEl.style.color = "#d35400"; // misalnya style warna
+      container.appendChild(nameEl);
+
+      // Pembungkus barisan karya
+      const artworkRow = document.createElement("div");
+      artworkRow.classList.add("artwork-row");
+      artworkRow.style.display = "flex";
+      artworkRow.style.gap = "20px";
+      artworkRow.style.flexWrap = "wrap";
+
+      artist.artworks.forEach(art => {
+        const wrapper = document.createElement("div");
+        wrapper.style.textAlign = "center";
+
+        const img = document.createElement("img");
+        img.src = art.image;
+        img.alt = art.title;
+        img.style.width = "200px";
+
+        const title = document.createElement("p");
+        title.textContent = art.title;
+
+        wrapper.appendChild(img);
+        wrapper.appendChild(title);
+        artworkRow.appendChild(wrapper);
+      });
+
+      container.appendChild(artworkRow);
+    });
+  })
+  .catch(err => console.error("Gagal ambil data:", err));
 });
 
 

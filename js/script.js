@@ -115,6 +115,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   })
   .catch(err => console.error("Gagal ambil data:", err));
+  
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cartBottom = document.querySelector('.cart-expand-bottom');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            // Simulasikan bahwa barang berhasil ditambahkan
+            cartBottom.style.display = 'flex'; 
+        });
+    });
 });
 
 
